@@ -3,6 +3,7 @@ from fetcher import fetch_github_trending, fetch_x, fetch_ai_news, fetch_openai_
 import requests
 import os
 from dotenv import load_dotenv
+from ai_transform import transform_to_fun
 
 load_dotenv()
 
@@ -78,7 +79,6 @@ def ai_gossip_comment(news_text):
 # 📡 聚合数据
 # -------------------------
 items = []
-from fetcher import transform_to_fun  # 如果 ai_transform.py 里有原来的 transform_to_fun
 
 items += fetch_github_trending()
 items += fetch_x(keyword)
