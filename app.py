@@ -80,10 +80,10 @@ def ai_gossip_comment(news_text):
 # -------------------------
 items = []
 
-items += fetch_github_trending()
+items += fetch_github_trending(keyword)
 items += fetch_x(keyword)
-items += fetch_ai_news()
-items += fetch_openai_blog()
+items += fetch_ai_news(keyword)
+items += fetch_openai_blog(keyword)
 
 st.write(f"数据条数: {len(items)}")
 
