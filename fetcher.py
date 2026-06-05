@@ -14,12 +14,10 @@ def fetch_rss(url, limit=5):
                 "summary": entry.get("summary", "")
             })
         if not items:
-            # fallback 占位
             items = [{"title": "RSS源暂无内容", "link": "#", "summary": ""}]
         return items
     except:
         return [{"title": "RSS抓取失败", "link": "#", "summary": ""}]
-
 
 def fetch_github_trending():
     """抓 GitHub热门库"""
@@ -33,8 +31,7 @@ def fetch_github_trending():
     except:
         return [{"title": "GitHub抓取失败", "link": "#", "summary": ""}]
 
-
-def fetch_x(keyword="AI"):
+def fetch_x(keyword="科技"):
     """模拟 X / Twitter 热点"""
     return [{
         "title": f"{keyword} 在X热议中🔥",
@@ -42,10 +39,8 @@ def fetch_x(keyword="AI"):
         "summary": f"开发者社区正在讨论 {keyword} 的最新动态"
     }]
 
-
 def fetch_ai_news():
     return fetch_rss("https://www.artificialintelligence-news.com/feed/")
-
 
 def fetch_openai_blog():
     return fetch_rss("https://openai.com/blog/rss.xml")
