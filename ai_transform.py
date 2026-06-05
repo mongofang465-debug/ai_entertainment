@@ -40,7 +40,7 @@ def transform_to_fun(text):
     }
 
     try:
-        res = requests.post(OPENROUTER_API_URL:=OPENROUTER_URL, headers=headers, json=payload, timeout=15)
+        res = requests.post(OPENROUTER_URL, headers=headers, json=payload, timeout=15)
         data = res.json()
         return data["choices"][0]["message"]["content"]
     except:
