@@ -4,10 +4,10 @@ from fetcher import fetch_github_trending, fetch_x, fetch_ai_news, fetch_openai_
 from ai_transform import transform_to_fun
 
 st.set_page_config(page_title="AI娱乐资讯流", layout="wide")
-st.title("🎉 AI娱乐资讯信息流（动态keyword+吃瓜版）")
+st.title("🎉 AI娱乐资讯信息流（自动吃瓜点评版）")
 
-# 用户前端输入的关键词
-keyword = st.text_input("输入关键词", "科技")
+# 用户输入的关键词，仅用于抓取 X 热点
+keyword = st.text_input("输入关键词抓取热点（可空）", "科技")
 
 st.markdown("---")
 st.subheader("🔥 今日科技吃瓜流")
@@ -31,13 +31,12 @@ for item in items:
     # 1️⃣ AI 娱乐化原文
     fun_text = transform_to_fun(raw_text)
     
-    # 2️⃣ AI 生成一句“吃瓜点评”，基于前端 keyword
+    # 2️⃣ AI 自己生成一句“吃瓜点评”，不依赖用户关键词
     gossip_prompt = f"""
-你是科技娱乐编辑。根据这条科技新闻生成一句简短的“吃瓜点评”：
+你是科技娱乐编辑。请根据下面新闻内容生成一句简短的“吃瓜点评”：
 - 口语化、幽默、带吐槽感
 - 20~30字
 - 中文
-- 关键词：{keyword}
 内容：
 {raw_text}
 """
