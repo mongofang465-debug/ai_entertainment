@@ -1,5 +1,5 @@
 import streamlit as st
-from fetcher import fetch_github_trending, fetch_x, fetch_ai_news, fetch_openai_blog
+from fetcher import fetch_github, fetch_x, fetch_ai_news, fetch_openai_blog
 import requests
 import os
 from dotenv import load_dotenv
@@ -80,7 +80,7 @@ def ai_gossip_comment(news_text):
 # -------------------------
 items = []
 
-items += fetch_github_trending(keyword)
+items += fetch_github(keyword)
 items += fetch_x(keyword)
 items += fetch_ai_news(keyword)
 items += fetch_openai_blog(keyword)
