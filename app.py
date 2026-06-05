@@ -12,13 +12,13 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 MODEL = "openrouter/free"
 
 st.set_page_config(page_title="AI娱乐资讯流", layout="wide")
-st.title("🎉 AI科技吃瓜信息流（自动分析+点评版）")
+st.title("🎉 AI吃瓜信息流（自动分析+点评版）")
 
 # 用户输入关键词，仅用于抓 X 热点
-keyword = st.text_input("输入关键词抓取 X 热点", "科技")
+keyword = st.text_input("输入关键词抓取热点", "AI")
 
 st.markdown("---")
-st.subheader("🔥 今日科技吃瓜流")
+st.subheader("🔥 今日吃瓜流")
 
 # -------------------------
 # 🧠 AI分析+吃瓜点评函数
